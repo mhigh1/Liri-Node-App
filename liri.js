@@ -52,11 +52,18 @@ const spotifyThisSong = function(trackName) {
                     artistNames.push(artist.name);
                 });
                 
+                let previewUrl = '';
+                if(track.preview_url) {
+                    previewUrl = track.preview_url;
+                } else {
+                    previewUrl = 'Not Available';
+                };
+
                 console.log('====================');
                 console.log('Album:', track.album.name);
                 console.log('Track:', track.name);
                 console.log('Artist(s):', artistNames.join(', '));
-                console.log('Preview:', track.preview_url);
+                console.log('Preview:', previewUrl);
                 console.log('====================');
             });
         });
