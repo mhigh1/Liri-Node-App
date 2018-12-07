@@ -90,6 +90,12 @@ const spotifyThisSong = function(trackName) {
 
 // Query the OMDB API for movie title and display the result
 const movieThis = function(movieTitle) {
+    
+    // If movieTitle is null, then default to Mr. Nobody
+    if(!movieTitle) {
+        movieTitle = "Mr. Nobody";
+    }
+
     const omdbApiUrl = encodeURI(`https://www.omdbapi.com/?apikey=${keys.omdb}&t=${movieTitle}`);
     request(omdbApiUrl, function(error, response, body) {
         if(error) {
