@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fs = require('fs');
 const request = require('request');
 const Spotify = require('node-spotify-api');
 const keys = require('./keys.js');
@@ -76,6 +77,32 @@ const movieThis = function(movieTitle) {
 }
 
 // do-what-it-says
+const doWhatItSays = function(filePath) {
+    fs.readFile(filePath, 'utf8', function(error, data) {
+        if(error) {
+            return console.log('error:', error);
+        }
+
+        const content = data.split(',');
+        const command = content[0].trim();
+        const param = content[1].trim();
+
+        switch (command) {
+            case 'concert-this': 
+                concertThis(param);
+                break;
+            case 'spotify-this-song':
+                spotifyThisSong(param);
+                break;
+            case 'movie-this':
+                movieThis(param);
+                break;
+            default:
+                console.log(`No operation found for '${process.argv[2]}'.`)
+                break;
+        }        
+    });
+}
 
 
 // runtime
@@ -90,7 +117,7 @@ switch (process.argv[2]) {
         movieThis(process.argv.slice(3).join(' '));
         break;
     case 'do-what-it-says':
-        //doWhatItSays();
+        doWhatItSays('./random.txt');
         break;
     default:
         console.log(`No operation found for '${process.argv[2]}'.`)
