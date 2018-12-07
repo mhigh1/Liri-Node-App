@@ -58,6 +58,23 @@ const spotifyThisSong = function(trackName) {
 }
 
 // movie-this
+const movieThis = function(movieTitle) {
+    const omdbApiUrl = encodeURI(`https://www.omdbapi.com/?apikey=8acace67&t=${movieTitle}`);
+    request(omdbApiUrl, function(error, response, body) {
+        result = JSON.parse(body);
+        console.log('====================');
+        console.log('Title:', result.Title);
+        console.log('Released:', result.Year);
+        console.log('IMDB Rating:', result.imdbRating);
+        console.log('Rotten Tomatoes:', result.Ratings.find(el => el.Source === "Rotten Tomatoes").Value);
+        console.log('Country:', result.Country);
+        console.log('Language:', result.Language);
+        console.log('Actors:', result.Actors);
+        console.log('Plot:', result.Plot);
+        console.log('====================');
+    });
+}
+
 // do-what-it-says
 
 
@@ -68,6 +85,12 @@ switch (process.argv[2]) {
         break;
     case 'spotify-this-song':
         spotifyThisSong(process.argv.slice(3).join(' '));
+        break;
+    case 'movie-this':
+        movieThis(process.argv.slice(3).join(' '));
+        break;
+    case 'do-what-it-says':
+        //doWhatItSays();
         break;
     default:
         console.log(`No operation found for '${process.argv[2]}'.`)
