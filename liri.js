@@ -2,7 +2,7 @@ require('dotenv').config();
 const fs = require('fs');
 const request = require('request');
 const Spotify = require('node-spotify-api');
-const keys = require('./keys.js');
+const keys = require('./keys');
 const spotify = new Spotify(keys.spotify);
 
 // concert-this
@@ -60,19 +60,23 @@ const spotifyThisSong = function(trackName) {
 
 // movie-this
 const movieThis = function(movieTitle) {
-    const omdbApiUrl = encodeURI(`https://www.omdbapi.com/?apikey=8acace67&t=${movieTitle}`);
+    const omdbApiUrl = encodeURI(`https://www.omdbapi.com/?apikey=${keys.omdb}&t=${movieTitle}`);
     request(omdbApiUrl, function(error, response, body) {
-        result = JSON.parse(body);
-        console.log('====================');
-        console.log('Title:', result.Title);
-        console.log('Released:', result.Year);
-        console.log('IMDB Rating:', result.imdbRating);
-        console.log('Rotten Tomatoes:', result.Ratings.find(el => el.Source === "Rotten Tomatoes").Value);
-        console.log('Country:', result.Country);
-        console.log('Language:', result.Language);
-        console.log('Actors:', result.Actors);
-        console.log('Plot:', result.Plot);
-        console.log('====================');
+        if(error) {
+            return console.log(`ERROR: Failed to call API endpoint at '${error.host+error.port}, eCode: ${error.code}'`);
+        } else {
+            result = JSON.parse(body);
+            console.log('====================');
+            console.log('Title:', result.Title);
+            console.log('Released:', result.Year);
+            console.log('IMDB Rating:', result.imdbRating);
+            console.log('Rotten Tomatoes:', result.Ratings.find(el => el.Source === "Rotten Tomatoes").Value);
+            console.log('Country:', result.Country);
+            console.log('Language:', result.Language);
+            console.log('Actors:', result.Actors);
+            console.log('Plot:', result.Plot);
+            console.log('====================');
+        }
     });
 }
 
