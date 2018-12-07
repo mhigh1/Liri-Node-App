@@ -46,14 +46,15 @@ const spotifyThisSong = function(trackName) {
             }
             const tracks = data.tracks.items;
             tracks.forEach(track => {
+                const artistNames = [];
                 console.log('====================');
                 console.log('Album:', track.album.name);
                 console.log('Track:', track.name);
                 
                 track.artists.forEach(artist => {
-                    console.log('Artist:', artist.name);
+                    artistNames.push(artist.name);
                 });
-
+                console.log('Artist(s):', artistNames.join(', '));
                 console.log('Preview:', track.preview_url);
                 console.log('====================');
             });
