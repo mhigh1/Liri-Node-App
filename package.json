@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/mhigh1/Liri-Node-App/issues"
   },
-  "homepage": "https://github.com/mhigh1/Liri-Node-App#readme"
+  "homepage": "https://github.com/mhigh1/Liri-Node-App#readme",
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "node-spotify-api": "^1.0.7",
+    "request": "^2.88.0"
+  }
 }
