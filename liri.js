@@ -1,6 +1,8 @@
 require('dotenv').config();
 const request = require('request');
-//const spotify = new Spotify(keys.spotify);
+const Spotify = require('node-spotify-api');
+const keys = require('./keys.js');
+const spotify = new Spotify(keys.spotify);
 
 // concert-this
 const concertThis = function(artist) {
@@ -28,15 +30,32 @@ const concertThis = function(artist) {
 }
 
 // spotify-this-song
+// TO-DO: add condition is no trackName is provided
 const spotifyThisSong = function(trackName) {
+    if(trackName) {
+    spotify.search({ type: 'track', query: trackName, limit: 5 }, function(error, data) {
+        if (error) {
+          return console.log('Error: ' + error);
+        }
+        const tracks = data.tracks.items;
+        tracks.forEach(track => {
+            console.log('====================');
+            console.log('Album:', track.album.name);
+            console.log('Track:', track.name);
+            
+            // foreach artist
+            track.artists.forEach(artist => {
+                console.log('Artist:', artist.name);
+            });
 
+            console.log('Preview:', track.preview_url);
+            console.log('====================');
+        });
+      });
+    } else {
+        console.log("What's My Age Again by blink-182");
+    }
 }
-
-// Artist(s)
-// The song's name
-// A preview link of the song from Spotify
-// The album that the song is from
-
 
 // movie-this
 // do-what-it-says
