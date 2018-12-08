@@ -7,8 +7,8 @@ Before you begin using LIRI, you will need to complete the following tasks:
 ```
 install npm
 ```
-1. Setup an account to use the [Spotify API] (https://developer.spotify.com/dashboard/login) 
-1. Setup an account to use the [OMDB API] (http://www.omdbapi.com/)
+1. Setup an account to use the [Spotify API](https://developer.spotify.com/dashboard/login) 
+1. Setup an account to use the [OMDB API](http://www.omdbapi.com/)
 1. Create a .env file to store your keys
 ```
 # Spotify API keys
