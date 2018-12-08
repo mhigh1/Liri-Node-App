@@ -3,7 +3,7 @@ Language Interpretation and Recognition Interface (LIRI) is a node.js command-li
 
 ## Before You Begin ##
 Before you begin using LIRI, you will need to complete the following tasks:
-1. Install NPM Modules `install npm`
+1. Install required NPM Modules using `install npm`
 2. Setup an account to use the [Spotify API](https://developer.spotify.com/dashboard/login) 
 3. Setup an account to use the [OMDB API](http://www.omdbapi.com/)
 4. Create a .env file to store your keys
