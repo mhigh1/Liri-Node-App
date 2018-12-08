@@ -26,22 +26,22 @@ OMDB_KEY=your-omdb-key
 ```
 node liri.js concert-this <string>
 ```
-![Demo of concert-this](https://github.com/mhigh1/Liri-Node-App/images/concert-this.gif)
+![Demo of concert-this](https://github.com/mhigh1/Liri-Node-App/blob/master/images/concert-this.gif)
 
 ### Search for song details on Spotify ###
 ```
 node liri.js spotify-this-song <string>
 ```
-![Demo of spotify-this-song](#)
+![Demo of spotify-this-song](https://github.com/mhigh1/Liri-Node-App/blob/master/images/spotify-this.gif)
 
 ### Search for movie details on OMDB ###
 ```
 node liri.js movie-this <string>
 ```
-![Demo of movie-this](#)
+![Demo of movie-this](https://github.com/mhigh1/Liri-Node-App/blob/master/images/movie-this.gif)
 
 ### Execute commands in a file ###
 ```
 node liri.js do-what-it-says
 ```
-![Demo of do-what-it-says](#)
+![Demo of do-what-it-says](https://github.com/mhigh1/Liri-Node-App/blob/master/images/do-this.gif)
