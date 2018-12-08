@@ -26,7 +26,7 @@ OMDB_KEY=your-omdb-key
 ```
 node liri.js concert-this <string>
 ```
-![Demo of concert-this](#)
+![Demo of concert-this](https://github.com/mhigh1/Liri-Node-App/images/concert-this.gif)
 
 ### Search for song details on Spotify ###
 ```
